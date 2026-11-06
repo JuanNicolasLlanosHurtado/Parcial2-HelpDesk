@@ -1,0 +1,25 @@
+<%- include('partials/header', { titulo: titulo, activa: activa }) %>
+
+<section class="row align-items-center g-4">
+  <div class="col-lg-7">
+    <span class="sello">¡Adiós al cuaderno!</span>
+    <h1 class="titulo-grande mt-3">¿Algo se <em>dañó</em>?<br>Cuéntanos.</h1>
+    <p class="fs-5 mt-3">
+      El departamento de sistemas ya no anota nada en papel. Si el proyector no enciende,
+      el internet se cayó o un computador no responde, repórtalo aquí y el equipo de
+      soporte lo atiende.
+    </p>
+    <a href="/reportar" class="btn boton boton-rosa btn-lg mt-2">📢 REPORTAR UNA FALLA</a>
+  </div>
+
+  <div class="col-lg-5">
+    <div class="tarjeta tarjeta-amarilla">
+      <h3 class="mb-3">¿Cómo funciona?</h3>
+      <p><span class="numero">1</span> Llenas el formulario con tu nombre y el aula.</p>
+      <p><span class="numero">2</span> Describes qué está fallando.</p>
+      <p class="mb-0"><span class="numero">3</span> Soporte lo ve en su panel y lo arregla.</p>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

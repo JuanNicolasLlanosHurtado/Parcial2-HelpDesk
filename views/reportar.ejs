@@ -1,0 +1,45 @@
+<%- include('partials/header', { titulo: titulo, activa: activa }) %>
+
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+
+    <h1 class="titulo-medio mb-4">Reportar <em>falla</em></h1>
+
+    <% if (exito) { %>
+      <div class="alert alert-success alerta-verde" role="alert">
+        ✅ ¡Listo! Tu reporte fue guardado. El equipo de soporte lo revisará pronto.
+      </div>
+    <% } %>
+
+    <% if (error) { %>
+      <div class="alert alert-danger alerta-roja" role="alert">
+        ⚠️ <%= error %>
+      </div>
+    <% } %>
+
+    <form action="/reportar" method="POST" class="tarjeta tarjeta-blanca">
+      <div class="mb-4">
+        <label for="solicitante" class="form-label etiqueta">Nombre del solicitante</label>
+        <input type="text" class="form-control campo" id="solicitante" name="solicitante"
+               placeholder="Ej: Juan Nicolas" required>
+      </div>
+
+      <div class="mb-4">
+        <label for="ubicacion" class="form-label etiqueta">Aula / Ubicación</label>
+        <input type="text" class="form-control campo" id="ubicacion" name="ubicacion"
+               placeholder="Ej: 305 k" required>
+      </div>
+
+      <div class="mb-4">
+        <label for="descripcion" class="form-label etiqueta">Descripción del problema</label>
+        <textarea class="form-control campo" id="descripcion" name="descripcion" rows="4"
+                  placeholder="Ej: El proyector no enciende" required></textarea>
+      </div>
+
+      <button type="submit" class="btn boton boton-verde w-100">ENVIAR REPORTE →</button>
+    </form>
+
+  </div>
+</div>
+
+<%- include('partials/footer') %>
