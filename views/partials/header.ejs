@@ -23,9 +23,18 @@
         <li class="nav-item">
           <a class="nav-link <%= activa === 'reportar' ? 'active' : '' %>" href="/reportar">Reportar</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link <%= activa === 'panel' ? 'active' : '' %>" href="/panel">Panel</a>
-        </li>
+        <% if (typeof loginAdmin !== 'undefined' && loginAdmin) { %>
+          <li class="nav-item">
+            <a class="nav-link <%= activa === 'admin' ? 'active' : '' %>" href="/admin">Panel Admin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-danger" href="/logout">Salir</a>
+          </li>
+        <% } else { %>
+          <li class="nav-item">
+            <a class="nav-link <%= activa === 'login' ? 'active' : '' %>" href="/login">Ingresar</a>
+          </li>
+        <% } %>
       </ul>
     </div>
   </div>

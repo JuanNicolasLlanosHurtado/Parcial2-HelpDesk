@@ -22,7 +22,7 @@
     <table class="table tabla align-middle mb-0">
       <thead>
         <tr>
-          <th>#ID</th>
+          <th>_id</th>
           <th>Solicitante</th>
           <th>Aula</th>
           <th>Problema</th>
@@ -33,15 +33,15 @@
       <tbody>
         <% tickets.forEach(function(t) { %>
           <tr>
-            <td><span class="etiqueta-id"><%= t.id %></span></td>
+            <td><span class="etiqueta-id"><%= t._id %></span></td>
             <td><%= t.solicitante %></td>
             <td><span class="chip"><%= t.ubicacion %></span></td>
             <td><%= t.descripcion %></td>
-            <td><%= t.fecha %></td>
+            <td><%= t.fecha.toLocaleString('es-CO') %></td>
             <td class="text-center">
-              <form action="/panel/resolver" method="POST"
-                    onsubmit="return confirm('¿Seguro que este problema ya quedó resuelto?');">
-                <input type="hidden" name="id" value="<%= t.id %>">
+              <form action="/admin/resolver" method="POST"
+                    onsubmit="return confirm('¿Seguro que este problema ya quedó resuelto? Se eliminará de MongoDB.');">
+                <input type="hidden" name="idTicket" value="<%= t._id %>">
                 <button type="submit" class="btn boton boton-verde boton-chico">Resuelto</button>
               </form>
             </td>

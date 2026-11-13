@@ -1,0 +1,33 @@
+<%- include('partials/header', { titulo: titulo, activa: activa }) %>
+
+<div class="row justify-content-center">
+  <div class="col-md-6 col-lg-5">
+
+    <h1 class="titulo-medio mb-4">Acceso <em>administrador</em></h1>
+
+    <% if (errorLogin) { %>
+      <div class="alert alert-danger alerta-roja text-center" role="alert">
+        ⚠️ <%= errorLogin %>
+      </div>
+    <% } %>
+
+    <form action="/login" method="POST" class="tarjeta tarjeta-blanca">
+      <div class="mb-4">
+        <label for="usuario" class="form-label etiqueta">Usuario</label>
+        <input type="text" class="form-control campo" id="usuario" name="usuario"
+               placeholder="admin" required>
+      </div>
+
+      <div class="mb-4">
+        <label for="contrasena" class="form-label etiqueta">Contraseña</label>
+        <input type="password" class="form-control campo" id="contrasena" name="contrasena"
+               placeholder="12345" required>
+      </div>
+
+      <button type="submit" class="btn boton boton-verde w-100">🔐 INICIAR SESIÓN</button>
+    </form>
+
+  </div>
+</div>
+
+<%- include('partials/footer') %>
